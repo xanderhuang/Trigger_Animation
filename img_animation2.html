@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .slideanimate {
+            width: 100%;
+            visibility: hidden;
+            /* 一開始visibility是hidden；當被.addClass("slide")，visibility才會變成visible */
+        }
+        
+        .slide {
+            animation-name: slide;
+            animation-duration: 1s;
+            visibility: visible;
+        }
+        
+        @keyframes slide {
+            0% {
+                opacity: 0;
+                transform: translateY(70%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div style="height:100vh;background-color:royalblue"></div>
+
+    <div>
+        <img class="slideanimate" src="https://p4css.github.io/webScroll/assets/taipei-1.jpg" />
+        <img class="slideanimate" src="https://p4css.github.io/webScroll/assets/taipei-2.jpg" />
+        <img class="slideanimate" src="https://p4css.github.io/webScroll/assets/taipei-3.jpg" />
+        <img class="slideanimate" src="https://p4css.github.io/webScroll/assets/taipei-4.jpg" />
+    </div>
+
+    <div style="height:100vh;background-color:gray"></div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous">
+    </script>
+
+    <script>
+        $(function() {
+            let winh = $(window).height();
+            // console.log(winh);
+            $(window).scroll(function() {
+                $(".slideanimate").each(function() { // .each()：slide動畫要apply到每個有".slideanimate"的物件
+                    let scrolled = $(window).scrollTop();
+                    let objpos = $(this).offset().top; // this → 取得當下這個物件的位置，scrolled(目前捲動位置)超過的那個物件
+                    if (objpos < scrolled + winh * 0.8) {
+                        $(this).addClass("slide");
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

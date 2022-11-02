@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fredericka the Great">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Passero+One">
+
+<head>
+    <style>
+        .sample-setting {
+            animation-name: bounce;
+            animation-duration: 4s;
+            /* or: Xms */
+            animation-iteration-count: 10;
+            animation-direction: alternate;
+            /* or: normal */
+            /* ease-in：一開始很慢，後來加速；ease-out：一開始很快，後來降速 */
+            animation-timing-function: ease-out;
+            /* or: ease, ease-in, ease-in-out, linear, cubic-bezier(x1, y1, x2, y2) */
+            animation-fill-mode: forwards;
+            /* or: backwards, both, none */
+            animation-delay: 2s;
+            /* or: Xms */
+        }
+        /* animation: test 1s 2s 3 alternate backwards */
+        
+        .load-animate {
+            /* animation: load 1s 0s 5 normal forwards; */
+            /* 每次1秒，執行5次 */
+            animation: load 1s 0s infinite;
+            visibility: visible;
+        }
+        
+        @keyframes load {
+            0% {
+                font-size: 14px;
+                /* 		transform: translateY(-30%); */
+            }
+            100% {
+                font-size: 18px;
+                /* 		transform: translateY(0%); */
+            }
+        }
+        
+        h1 {
+            font-family: "Fredericka the Great", "Lucida Grande", Helvetica, "Helvetica Neue", "HelveticaNeue-Light", "Helvetica Neue Light", Arial, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div style="height:100vh;background-color:aliceblue">
+        <div class="text-center load-animate" style="height:100px;width:100px;position:relative;top:50vh;left:50vw">
+            <h1>Loading...</h1>
+        </div>
+    </div>
+    <div style="height:100vh;background-color:gray">
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        img {
+            width: 100%;
+            visibility: hidden;
+        }
+        
+        .slide {
+            animation-name: slide;
+            animation-duration: 1s;
+            visibility: visible;
+        }
+        
+        @keyframes slide {
+            0% {
+                opacity: 0;
+                transform: translateY(70%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div style="height:100vh;background-color:royalblue"></div>
+
+    <div>
+        <img id="img1" alt="img1" src="https://p4css.github.io/webScroll/assets/taipei-1.jpg" />
+    </div>
+
+    <div style="height:100vh;background-color:gray"></div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous">
+    </script>
+
+    <script>
+        $(function() {
+            $(window).scroll(function() {
+                // scrolled：目前捲動位置
+                let scrolled = $(window).scrollTop();
+                let winh = $(window).height();
+                let objpos = $("#img1").offset().top;
+                if (objpos < scrolled + winh * 0.8) {
+                    $("#img1").addClass("slide");
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

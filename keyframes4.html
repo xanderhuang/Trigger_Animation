@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background: crimson;
+            position: relative;
+            animation: bounce 2s infinite;
+            /* 2 second */
+        }
+        
+        @keyframes bounce {
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-100px);
+            }
+            60% {
+                transform: translateY(-50px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>The @keyframes Rule</h1>
+
+    <div></div>
+
+</body>
+
+</html>
